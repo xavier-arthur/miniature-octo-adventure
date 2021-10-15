@@ -4,5 +4,6 @@ public class Cliente extends ClienteEspecial {
 
     public Cliente() {
     	//teste
+	//teste2
     }
 }
