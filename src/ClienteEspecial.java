@@ -17,7 +17,7 @@ public class ClienteEspecial extends Cliente {
 
 	@Override
 	public String toString() {
-		return "ClienteEspecial [valeCompra=" + valeCompra + "]";
+		return super.toString() +" valeCompra=" + valeCompra;
 	}
 
 	
