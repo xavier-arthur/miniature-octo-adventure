@@ -33,7 +33,7 @@ public class CadCompra implements Vetor, Ordenacao {
 	@Override
 	public void insercaoDireta() {
 		// TODO Auto-generated method stub
-
+//teste
 	}
 
 	@Override
