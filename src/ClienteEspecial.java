@@ -7,6 +7,7 @@ public class ClienteEspecial extends Cliente {
 		super(nome, cpf);
 		this.valeCompra = valeCompra;
 	}
+	public ClienteEspecial() {}
 	
 	public double getValeCompra() {
 		return valeCompra;
