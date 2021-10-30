@@ -3,37 +3,81 @@ import java.util.Calendar;
 
 public class CadCompra implements Vetor, Ordenacao {
 
-	private ArrayList<Compra> vetCompra;
+	private ArrayList<Compra> lista;
 
+	// Instanciar a lista do tipo Compra
 	public CadCompra() {
-	vetCompra = new ArrayList<Compra>();
+		lista = new ArrayList<>();
+	}
+	
+	// Esse método pesquisa uma compra passando uma compra como parâmetro
+	public Boolean pesquisa(Compra compra) {
+		for (int i = 0; i < lista.size(); i++) {
+			if (compra.getCliente().getNome().equalsIgnoreCase(lista.get(i).getCliente().getNome())) {
+				return true;
+			}
+		}
+		return false;
 	}
 
-	// NIVALDO VARGAS CRUZ;53676030096;104.4;28/01/1992;4806.88
-	@Override
-	public void insere(Compra compra) {
-		vetCompra.add(compra);
+	// Esse método retorna uma compra em determinada posição
+	public Compra getPos(int posicao) {
+
+		Compra compra = lista.get(posicao);
+		if (compra != null) {
+			return compra;
+		}
+		return null;
 	}
 
+	// Esse método retorna a posição de um cliente comparando o CPF dos mesmos
+	public int getPosicao(String CPF) {
+		for (int i = 0; i < lista.size(); i++) {
+			if (lista.get(i).getCliente().getCpf() == CPF) {
+				return i;
+			}
+		}
+		return -1;
+	}
+
+	// Esse método retorna o tamanho da lista
+	public int listaSize() {
+		return lista.size();
+	}
+
+	// Esse método remove uma compra recebendo um CPF e uma data
 	@Override
 	public String remove(String cpf, Calendar data) {
 
-		for (int i = 0; i < vetCompra.size(); i++) {
-			if (vetCompra.get(i).getCliente().getCpf().equals(cpf) && vetCompra.get(i).getData().equals(data)) {
-				vetCompra.remove(i);
+		for (int i = 0; i < lista.size(); i++) {
+			if (lista.get(i).getCliente().getCpf().equals(cpf) && lista.get(i).getData().equals(data)) {
+				lista.remove(i);
 				i--;
 				return "Compra Removida!";
 			}
-
 		}
 		return "Compra não encontrada!";
+	}
 
+	// imprime na tela todas as compras da lista
+	public void toStringLista() {
+		for (int i = 0; i < lista.size(); i++) {
+			if (lista.get(i) instanceof Compra) {
+				Compra com = lista.get(i);
+				System.out.println(com.toString());
+			}
+
+		}
+	}
+	// esse método insere uma compra na lista
+	@Override
+	public void insere(Compra compra) {
+		lista.add(compra);
 	}
 
 	@Override
 	public void insercaoDireta() {
 		// TODO Auto-generated method stub
-//teste
 	}
 
 	@Override

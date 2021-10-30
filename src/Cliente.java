@@ -1,13 +1,7 @@
 
 public class Cliente   {
 
-<<<<<<< Updated upstream
-    public Cliente() {
-    	//teste
-	//teste2
-    }
-}
-=======
+
 	  private String nome, cpf;
 	   
 		public Cliente(String nome, String cpf) {
@@ -38,4 +32,4 @@ public class Cliente   {
 		
 	  
 	}
->>>>>>> Stashed changes
+
