@@ -35,7 +35,7 @@ public class Compra {
 
 	@Override
 	public String toString() {
-		return "Compra [cliente=" + cliente + ", data=" + data + ", valor=" + valor + "]";
+		return "Compra [cliente=" + cliente + ", data=" + ManipulaData.formatar(data) + ", valor=" + valor + "]";
 	}
 	
     

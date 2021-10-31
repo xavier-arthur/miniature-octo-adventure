@@ -3,11 +3,10 @@ import java.util.Calendar;
 
 public class CadCompra implements Vetor, Ordenacao {
 
-	private ArrayList<Compra> lista;
+	private ArrayList<Compra> lista = new ArrayList<>();
 
 	// Instanciar a lista do tipo Compra
 	public CadCompra() {
-		lista = new ArrayList<>();
 	}
 	
 	// Esse m�todo pesquisa uma compra passando uma compra como par�metro

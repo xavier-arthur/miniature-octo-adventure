@@ -34,4 +34,6 @@ public class LerArquivoCompra {
     public ArrayList<String[]> getConteudo() {
         return this.conteudo;
     }
+    
+    
 }

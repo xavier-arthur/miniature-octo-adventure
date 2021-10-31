@@ -1,3 +1,4 @@
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -12,21 +13,15 @@ public class App {
 		int opcao = 5;
 
 		do {
-			// Inserir Arquivo na lista
-			System.out.println("1 - Carregar Arquivo TXT");
-			// ordenar arquivos nas lista
+			System.out.println("1 - Carregar um Arquivo na lista de compras");
 			System.out.println("2 - Ordenar Arquivos Pelo CPF(Inserção Direta)");
-			// Criar um Arquivo txt com o resultado da ordenação
 			System.out.println("3 - Criar Arquivo ordenado");
-
 			System.out.println("4 - Tamanho da lista");
-
 			System.out.println("0 - Sair");
-
 			opcao = scan.nextInt();
 
 			if (opcao == 1) {
-				carregarArquivoTXT(compra);
+				carregarArquivoLista(compra);
 			}
 			if (opcao == 2) {
 				ordenarArquivoTXT(compra);
@@ -38,7 +33,34 @@ public class App {
 
 	}
 
-	private static void carregarArquivoTXT(CadCompra compra) {
+	private static void carregarArquivoLista(CadCompra compra) {
+		
+		// MUDAR PARA DIRETÓRIO DA PESSOA QUE VAI USAR PARA APRESENTAR NO DIA!
+		File diretorio = new File("C:\\arquivos");
+		File[] files = diretorio.listFiles();
+		String aux = "Selecione um arquivo: " + "\n";
+		String nomeDoArquivo = null;
+
+		for (int i = 0; i < files.length; i++) {
+			aux += i + 1 + " - " + files[i].getName() + "\n";
+		}
+		System.out.println(aux);
+
+		int opcao = scan.nextInt();
+		for (int i = 0; i <= opcao - 1; i++) {
+			nomeDoArquivo = files[i].getName();
+		}
+		System.out.println("Arquivo: " + nomeDoArquivo + "\n");
+		
+		//LER ARQUIVO SELECIONADO INSERINDO ELES NA  LISTA
+		LerArquivoJuanAndIcaro ler = new LerArquivoJuanAndIcaro();
+		ler.iniciarArquivo("C:/Users/juanr/OneDrive/Área de Trabalho/PrimeiraEtapaTRabalho/Arquivos Ordenação/" + nomeDoArquivo,compra);
+		compra.toStringLista();
+		System.out.println();
+		// PRINTANDO TODA A LISTA!
+		for (int i = 0; i < compra.listaSize(); i++) {
+			compra.toString();
+		}
 		
 	}
 
