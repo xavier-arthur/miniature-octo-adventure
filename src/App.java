@@ -96,8 +96,7 @@ public class App {
 
 		compra.shellSort();
 		System.out.println();
-		compra.toStringLista();
-
+		System.out.printf("%s\n", compra);
 	}
 
 	private static void criarArquivoOrdenadoTXT(CadCompra compra) {

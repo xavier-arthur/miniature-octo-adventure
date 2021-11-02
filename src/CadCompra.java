@@ -74,14 +74,28 @@ public class CadCompra implements Vetor, Ordenacao {
 
 			if (lista.get(i).getCliente() instanceof Cliente) {
 				Cliente cli = lista.get(i).getCliente();
-				System.out.println("CLIENTE => " + "NOME: " + cli.getNome() + ", CPF: " + cli.getCpf());
+				builder.append(
+                    String.join(";", new String[] {
+                        cli.getNome(),
+                        cli.getCpf(),
+                        this.lista.get(i).getData().toString(),
+                        Double.toString(this.lista.get(i).getValor())
+                    })
+                );
 			} else {
 				ClienteEspecial cliEsp = (ClienteEspecial) lista.get(i).getCliente();
-				System.out.println("CLIENTE ESPECIAL => " + "NOME: " + cliEsp.getNome() + ", CPF: " + cliEsp.getCpf()
-						+ ", VALE: " + cliEsp.getValeCompra());
+				builder.append(
+                    String.join(";", new String[] {
+                        cliEsp.getNome(),
+                        cliEsp.getCpf(),
+                        Double.toString(cliEsp.getValeCompra()),
+                        this.lista.get(i).getData().toString(),
+                        Double.toString(this.lista.get(i).getValor()) 
+                    })
+				);
 			}
-
 		}
+        return builder.toString();
 	}
 
 	@Override
