@@ -66,15 +66,16 @@ public class CadCompra implements Vetor, Ordenacao {
 		return "Compra no encontrada!";
 	}
 
-	// imprime na tela todas as compras da lista
-	public void toStringLista() {
+	@Override
+	public String toString() {
+		var builder = new StringBuilder();
+
 		for (int i = 0; i < lista.size(); i++) {
 
 			if (lista.get(i).getCliente() instanceof Cliente) {
 				Cliente cli = lista.get(i).getCliente();
 				System.out.println("CLIENTE => " + "NOME: " + cli.getNome() + ", CPF: " + cli.getCpf());
-			}
-			if (lista.get(i).getCliente() instanceof ClienteEspecial) {
+			} else {
 				ClienteEspecial cliEsp = (ClienteEspecial) lista.get(i).getCliente();
 				System.out.println("CLIENTE ESPECIAL => " + "NOME: " + cliEsp.getNome() + ", CPF: " + cliEsp.getCpf()
 						+ ", VALE: " + cliEsp.getValeCompra());

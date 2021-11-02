@@ -101,6 +101,11 @@ public class App {
 	}
 
 	private static void criarArquivoOrdenadoTXT(CadCompra compra) {
-		// TODO Auto-generated method stub
+        if (arquivoEscolhido.equals("")) {
+            System.out.printf("\nVoce precisa escolher um arquivo primeiro!\n\n");
+            return;
+        }
+
+        System.out.printf("%s\n", compra);
 	}
 }
