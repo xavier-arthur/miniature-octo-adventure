@@ -7,8 +7,18 @@ public class CadCompra implements Vetor, Ordenacao {
 
 	// Instanciar a lista do tipo Compra
 	public CadCompra() {
+		super();
 	}
-	
+
+//LISTA VAZIA
+
+	public boolean eVazio() {
+		if (this.lista.size() == 0) {
+			return true;
+		}
+		return false;
+	}
+
 	// Esse m�todo pesquisa uma compra passando uma compra como par�metro
 	public Boolean pesquisa(Compra compra) {
 		for (int i = 0; i < lista.size(); i++) {
@@ -59,9 +69,15 @@ public class CadCompra implements Vetor, Ordenacao {
 	// imprime na tela todas as compras da lista
 	public void toStringLista() {
 		for (int i = 0; i < lista.size(); i++) {
-			if (lista.get(i) instanceof Compra) {
-				Compra com = lista.get(i);
-				System.out.println(com.toString());
+
+			if (lista.get(i).getCliente() instanceof Cliente) {
+				Cliente cli = lista.get(i).getCliente();
+				System.out.println("CLIENTE => " + "NOME: " + cli.getNome() + ", CPF: " + cli.getCpf());
+			}
+			if (lista.get(i).getCliente() instanceof ClienteEspecial) {
+				ClienteEspecial cliEsp = (ClienteEspecial) lista.get(i).getCliente();
+				System.out.println("CLIENTE ESPECIAL => " + "NOME: " + cliEsp.getNome() + ", CPF: " + cliEsp.getCpf()
+						+ ", VALE: " + cliEsp.getValeCompra());
 			}
 
 		}
@@ -74,13 +90,82 @@ public class CadCompra implements Vetor, Ordenacao {
 
 	@Override
 	public void insercaoDireta() {
-		// TODO Auto-generated method stub
+		int i, j;
+		Compra temp;
+
+		for (i = 1; i < this.lista.size(); i++) {
+			temp = this.lista.get(i);
+			j = i - 1;
+
+			while ((j >= 0) && (Long.parseLong(this.lista.get(j).getCliente().getCpf()) > Long
+					.parseLong(temp.getCliente().getCpf()))) {
+				this.lista.set(j + 1, this.lista.get(j--));
+
+			}
+			this.lista.set(j + 1, temp);
+		}
+
 	}
 
 	@Override
 	public void quickSort() {
-		// TODO Auto-generated method stub
+		ordena(0, this.listaSize() - 1);
 
+	}
+
+	private void ordena(int esq, int dir) {
+		Long pivo;
+		int i = esq, j = dir;
+		Compra temp;
+
+		pivo = Long.parseLong(this.lista.get((i + j) / 2).getCliente().getCpf());
+		do {
+			while (Long.parseLong(this.lista.get(i).getCliente().getCpf()) < pivo)
+				i++;
+			while (Long.parseLong(this.lista.get(j).getCliente().getCpf()) > pivo)
+				j--;
+			if (i <= j) {
+				temp = this.lista.get(i);
+				this.lista.set(i, this.lista.get(j));
+				this.lista.set(j, temp);
+				i++;
+				j--;
+
+			}
+
+		} while (i <= j);
+		if (esq < j)
+			ordena(esq, j);
+		if (dir > i)
+			ordena(i, dir);
+
+	}
+
+	@Override
+	public void shellSort() {
+		int i, j, h;
+		Compra temp;
+		h = 1;
+		do {
+			h = 3 * h + 1;
+		} while (h < this.listaSize());
+
+		do {
+			h = h / 3;
+			for (i = h; i < this.listaSize(); i++) {
+				temp = this.lista.get(i);
+				j = i;
+
+				while (Long.parseLong(this.lista.get(j - h).getCliente().getCpf()) > Long
+						.parseLong(temp.getCliente().getCpf())) {
+					this.lista.set(j, this.lista.get(j - h));
+					j -= h;
+					if (j < h)
+						break;
+				}
+				this.lista.set(j, temp);
+			}
+		} while (h != 1);
 	}
 
 	@Override
@@ -90,15 +175,21 @@ public class CadCompra implements Vetor, Ordenacao {
 	}
 
 	@Override
-	public void shellSort() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
 	public Compra get(int pos) {
-		// TODO Auto-generated method stub
-		return null;
+		if (eVazio() || pos > this.listaSize() ) {
+			return null;
+		}
+		Compra aux = null;
+		int i = 0;
+		while (i < this.listaSize()) {
+			if(this.lista.get(i) != this.lista.get(pos)) {
+				i++;
+			}
+			aux = this.lista.get(i);
+			
+		}
+		return aux;
+		
 	}
 
 }
