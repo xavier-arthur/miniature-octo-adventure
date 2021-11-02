@@ -19,7 +19,7 @@ public class App {
 		do {
 
 			System.out.printf(
-                arquivoEscolhido.equals("") ? "" : String.format("Arquivo escolhido: %s", arquivoEscolhido)
+                ((arquivoEscolhido.equals("")) ? "" : String.format("Arquivo escolhido: %s\n\n", arquivoEscolhido))
                 + "1 - Carregar um Arquivo na lista de compras\n"
                 + "2 - Ordenar Arquivos Pelo CPF(Insercao Direta)\n"
                 + "3 - Criar Arquivo ordenado\n"
@@ -66,7 +66,7 @@ public class App {
 		String nomeDoArquivo = null;
 
 		for (int i = 0; i < files.length; i++) {
-			aux += i + 1 + " - " + files[i].getName() + "\n";
+			aux += i + " - " + files[i].getName() + "\n";
 		}
 		System.out.println(aux);
 
@@ -75,7 +75,6 @@ public class App {
 		for (int i = 0; i <= opcao - 1; i++) {
 			nomeDoArquivo = files[i].getName();
 		}
-		System.out.println("Arquivo: " + nomeDoArquivo + "\n");
 
 		// LER ARQUIVO SELECIONADO INSERINDO ELES NA LISTA
 		LerArquivo ler = new LerArquivo();
@@ -85,11 +84,15 @@ public class App {
 
 		ler.iniciarArquivo(CAMINHO + nomeDoArquivo, compra);
 		end = System.currentTimeMillis();
-        arquivoEscolhido = files[opcao].toString();
+        arquivoEscolhido = files[opcao].getName();
 		System.out.println("tempo: " + (end - start) + " ms");
 	}
 
 	private static void ordenarArquivoTXT(CadCompra compra) throws FileNotFoundException {
+        if (arquivoEscolhido.equals("")) {
+            System.out.printf("\nVoce precisa escolher um arquivo primeiro!\n\n");
+            return;
+        }
 
 		compra.shellSort();
 		System.out.println();
@@ -99,6 +102,5 @@ public class App {
 
 	private static void criarArquivoOrdenadoTXT(CadCompra compra) {
 		// TODO Auto-generated method stub
-
 	}
 }
