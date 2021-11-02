@@ -7,37 +7,44 @@ import java.util.Scanner;
 public class App {
 
 	static Scanner scan = new Scanner(System.in);
+    static final String CAMINHO = "../arquivos/";
+    static String arquivoEscolhido = "";
 
 	public static void main(String[] args) throws IOException {
 
 		CadCompra compra = new CadCompra();
 
-		int opcao = 5;
+		int opcao;
 
 		do {
 
-			System.out.println("1 - Carregar um Arquivo na lista de compras");
-			System.out.println("2 - Ordenar Arquivos Pelo CPF(Inserção Direta)");
-			System.out.println("3 - Criar Arquivo ordenado");
-			System.out.println("4 - Tamanho da lista");
-			System.out.println("5 - Imprimir lista");
-			System.out.println("0 - Sair");
+			System.out.printf(
+                arquivoEscolhido.equals("") ? "" : String.format("Arquivo escolhido: %s", arquivoEscolhido)
+                + "1 - Carregar um Arquivo na lista de compras\n"
+                + "2 - Ordenar Arquivos Pelo CPF(Insercao Direta)\n"
+                + "3 - Criar Arquivo ordenado\n"
+                + "4 - Tamanho da lista\n"
+                + "5 - Imprimir lista\n"
+                + "0 - Sair\n\n"
+                + "Escolha: "
+            );
+
 			opcao = scan.nextInt();
 
-			if (opcao == 1) {
+            switch (opcao) {
+                case 1:
+                    carregarArquivoLista(compra);
+                    break;
+                case 2:
+                    ordenarArquivoTXT(compra);
+                    break;
+                case 3:
+                    criarArquivoOrdenadoTXT(compra);
+                    break;
+                case 4:
+                    imprimirLista(compra);
+                    break;
 
-				carregarArquivoLista(compra);
-
-			}
-			if (opcao == 2) {
-				ordenarArquivoTXT(compra);
-
-			}
-			if (opcao == 3) {
-				criarArquivoOrdenadoTXT(compra);
-			}
-			if (opcao == 5) {
-				imprimirLista(compra);
 			}
 		} while (opcao != 0);
 
@@ -52,8 +59,8 @@ public class App {
 
 	private static void carregarArquivoLista(CadCompra compra) throws FileNotFoundException {
 
-		// MUDAR PARA DIRETÓRIO DA PESSOA QUE VAI USAR PARA APRESENTAR NO DIA!
-		File diretorio = new File("C:\\arquivos");
+		// MUDAR PARA DIRETï¿½RIO DA PESSOA QUE VAI USAR PARA APRESENTAR NO DIA!
+		File diretorio = new File(CAMINHO);
 		File[] files = diretorio.listFiles();
 		String aux = "Selecione um arquivo: " + "\n";
 		String nomeDoArquivo = null;
@@ -63,6 +70,7 @@ public class App {
 		}
 		System.out.println(aux);
 
+        System.out.printf("Escolha: ");
 		int opcao = scan.nextInt();
 		for (int i = 0; i <= opcao - 1; i++) {
 			nomeDoArquivo = files[i].getName();
@@ -70,16 +78,15 @@ public class App {
 		System.out.println("Arquivo: " + nomeDoArquivo + "\n");
 
 		// LER ARQUIVO SELECIONADO INSERINDO ELES NA LISTA
-		LerArquivoJuanAndIcaro ler = new LerArquivoJuanAndIcaro();
+		LerArquivo ler = new LerArquivo();
 
 		long start, end;
 		start = System.currentTimeMillis();
 
-		ler.iniciarArquivo("C:\\Users\\juanr\\OneDrive\\Área de Trabalho\\PrimeiraEtapaTRabalho\\Arquivos Ordenação/"
-				+ nomeDoArquivo, compra);
+		ler.iniciarArquivo(CAMINHO + nomeDoArquivo, compra);
 		end = System.currentTimeMillis();
+        arquivoEscolhido = files[opcao].toString();
 		System.out.println("tempo: " + (end - start) + " ms");
-
 	}
 
 	private static void ordenarArquivoTXT(CadCompra compra) throws FileNotFoundException {
@@ -94,5 +101,4 @@ public class App {
 		// TODO Auto-generated method stub
 
 	}
-
 }
