@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 
-public class LerArquivoJuanAndIcaro {
+public class LerArquivo {
 
 	//ESSE METODO RECEBE O CAMINHO DO ARQUIVO A SER LIDO E UMA LISTA INSTANCIADA
 	public void iniciarArquivo(String caminho, CadCompra listas) {
@@ -25,7 +25,7 @@ public class LerArquivoJuanAndIcaro {
 				// COLOCANDO DENTRO DO VETOR O CONTEUDO DE CADA LINHA DO ARQUIVO SEPARANDO POR ";"
 				arq = linha.split(";");
 				
-				//COMPARANDO SE É CLIENTE ESPECIAL OU CLIENTE NORMAL
+				//COMPARANDO SE CLIENTE ESPECIAL OU CLIENTE NORMAL
 				if (arq.length == 4) {
 					
 					// CONVERTENDO O "VALOR" DE STRING PARA DOUBLE
@@ -53,7 +53,7 @@ public class LerArquivoJuanAndIcaro {
 
 			arqEntrada.close();
 		} catch (FileNotFoundException erro) {
-			System.out.println("\nArquivo não encontrado");
+			System.out.println("\nArquivo no encontrado");
 		} catch (Exception e) {
 			System.out.println("");
 		}
