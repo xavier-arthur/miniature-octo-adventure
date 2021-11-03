@@ -78,7 +78,7 @@ public class CadCompra implements Vetor, Ordenacao {
                     String.join(";", new String[] {
                         cli.getNome(),
                         cli.getCpf(),
-                        this.lista.get(i).getData().toString(),
+                        ManipulaData.formatar(this.lista.get(i).getData()),
                         Double.toString(this.lista.get(i).getValor())
                     })
                 );
@@ -89,11 +89,12 @@ public class CadCompra implements Vetor, Ordenacao {
                         cliEsp.getNome(),
                         cliEsp.getCpf(),
                         Double.toString(cliEsp.getValeCompra()),
-                        this.lista.get(i).getData().toString(),
+                        ManipulaData.formatar(this.lista.get(i).getData()),
                         Double.toString(this.lista.get(i).getValor()) 
                     })
 				);
 			}
+            builder.append("\n");
 		}
         return builder.toString();
 	}

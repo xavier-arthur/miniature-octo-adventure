@@ -4,7 +4,9 @@ import java.util.Calendar;
 import java.util.Scanner;
 
 public class ManipulaData {
+
 	private static Scanner scan = new Scanner(System.in);
+
 	public static Calendar LeData() {
 	 	
 		int dia, mes , ano;
@@ -20,6 +22,7 @@ public class ManipulaData {
 		data.set(ano, mes-1, dia);
 		return data;
 	}
+
 	public Calendar LeDataString(String str) {
 		
 		Calendar data;

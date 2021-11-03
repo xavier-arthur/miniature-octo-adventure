@@ -1,7 +1,8 @@
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
@@ -11,6 +12,7 @@ public class App {
     static String arquivoEscolhido = "";
 
 	public static void main(String[] args) throws IOException {
+    //                                     ^ ???????
 
 		CadCompra compra = new CadCompra();
 
@@ -51,10 +53,7 @@ public class App {
 	}
 
 	private static void imprimirLista(CadCompra compra) {
-
-		compra.toStringLista();
-		System.out.println();
-
+		System.out.println(compra);
 	}
 
 	private static void carregarArquivoLista(CadCompra compra) throws FileNotFoundException {
@@ -105,6 +104,10 @@ public class App {
             return;
         }
 
-        System.out.printf("%s\n", compra);
+        try {
+            var writer = new BufferedWriter(new FileWriter(CAMINHO + arquivoEscolhido + "-ORDENADO.txt"));
+            writer.write(compra.toString());
+            writer.close();
+        } catch (IOException err) { throw err; } 
 	}
 }
