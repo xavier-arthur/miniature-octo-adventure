@@ -192,7 +192,7 @@ public class CadCompra implements Vetor, Ordenacao {
 
 	@Override
 	public Compra get(int pos) {
-		if (eVazio() || pos > this.listaSize() ) {
+		if (this.eVazio() || pos > this.listaSize() ) {
 			return null;
 		}
 		Compra aux = null;
@@ -202,10 +202,8 @@ public class CadCompra implements Vetor, Ordenacao {
 				i++;
 			}
 			aux = this.lista.get(i);
-			
 		}
 		return aux;
 		
 	}
-
 }
