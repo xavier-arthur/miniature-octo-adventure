@@ -13,7 +13,6 @@ public class App {
 	static String metodoOrdenacao;
 
 	public static void main(String[] args) throws IOException {
-    //                                     ^ ???????
 
 		CadCompra compra = new CadCompra();
 
@@ -115,7 +114,7 @@ public class App {
 
 		System.out.printf(
 			"1. QuickSort\n"
-			+ "2. QuickSort c/ insercao\n"
+			+ "2. Insercacao direta\n"
 			+ "3. ShellSort\n"
 			+ "4. Voltar\n\n"
 			+ "Escolha o método: "
@@ -130,8 +129,8 @@ public class App {
 					compra.quickSort();
 					break;
 				case 2:
-					metodoOrdenacao = "quicksort_com_insercao_direta";
-					compra.quickComInsercao();
+					metodoOrdenacao = "insercao_direta";
+					compra.insercaoDireta();
 					break;
 				case 3:
 					metodoOrdenacao = "shellsort";

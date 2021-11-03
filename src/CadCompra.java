@@ -106,21 +106,33 @@ public class CadCompra implements Vetor, Ordenacao {
 
 	@Override
 	public void insercaoDireta() {
-		int i, j;
-		Compra temp;
-
-		for (i = 1; i < this.lista.size(); i++) {
-			temp = this.lista.get(i);
-			j = i - 1;
-
-			while ((j >= 0) && (Long.parseLong(this.lista.get(j).getCliente().getCpf()) > Long
-					.parseLong(temp.getCliente().getCpf()))) {
-				this.lista.set(j + 1, this.lista.get(j--));
-
+		/*
+			for (int i = 1; i < vetor.length; i++){
+			
+				int aux = vetor[i];
+				int j = i;
+				
+				while ((j > 0) && (vetor[j-1] > aux)){
+					vetor[j] = vetor[j-1];
+					j -= 1;
+				}
+				vetor[j] = aux;
 			}
-			this.lista.set(j + 1, temp);
-		}
+		*/
 
+		int i, j;
+		long temp, atual;
+
+		for (i = 1; i < this.lista.size() - 1; i++) {
+			j = i;
+			temp  = Long.parseLong(this.get(i).getCliente().getCpf());
+			atual = Long.parseLong(this.lista.get(j - 1).getCliente().getCpf());
+
+			while ((j > 0) && (atual > temp)) {
+				this.lista.set(j + 1, this.lista.get(j--));
+			}
+			this.lista.set(j, this.lista.get(i));
+		}
 	}
 
 	@Override
@@ -192,18 +204,6 @@ public class CadCompra implements Vetor, Ordenacao {
 
 	@Override
 	public Compra get(int pos) {
-		if (this.eVazio() || pos > this.listaSize() ) {
-			return null;
-		}
-		Compra aux = null;
-		int i = 0;
-		while (i < this.listaSize()) {
-			if(this.lista.get(i) != this.lista.get(pos)) {
-				i++;
-			}
-			aux = this.lista.get(i);
-		}
-		return aux;
-		
+		return this.lista.get(pos);
 	}
 }
