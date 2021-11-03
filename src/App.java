@@ -15,139 +15,57 @@ public class App {
 	public static void main(String[] args) throws IOException {
 
 		CadCompra compra = new CadCompra();
+		
+		long start, end;
+		for (File arquivo : new File(CAMINHO).listFiles()) {
 
-		int opcao;
+			for (int i = 1; i <=3; i++) {
+				start = System.currentTimeMillis();
+				carregarArquivo(arquivo.getName(), compra);
+				ordernarEscrever(compra, i);
+				System.out.printf("arquivo: %s\n", arquivo.getName());
+				arquivoEscolhido = arquivo.getName();
 
-		do {
-
-			System.out.printf(
-                ((arquivoEscolhido.equals("")) ? "" : String.format("Arquivo escolhido: %s\n\n", arquivoEscolhido))
-                + "1 - Carregar um Arquivo na lista de compras\n"
-                + "2 - Ordenar Arquivos Pelo CPF\n"
-                + "3 - Criar Arquivo ordenado\n"
-                + "4 - Tamanho da lista\n"
-                + "5 - Imprimir lista\n"
-                + "0 - Sair\n\n"
-                + "Escolha: "
-            );
-
-			opcao = scan.nextInt();
-
-            switch (opcao) {
-                case 1:
-                    carregarArquivoLista(compra);
-                    break;
-                case 2:
-                    ordenarArquivoTXT(compra);
-                    break;
-                case 3:
-                    criarArquivoOrdenadoTXT(compra);
-                    break;
-				case 4:
-					exibirTamanhoDaLista(compra);
-					break;
-                case 5:
-                    imprimirLista(compra);
-                    break;
-
+				end = System.currentTimeMillis();
+				System.out.printf("TEMPO TOTAL (%s): %sms\n",
+					switch (i) {
+						case 1 ->  "shellsort";
+						case 2 ->  "quicksort";
+						case 3 ->  "insercacao direta";
+						default -> "";
+					}, (end - start)
+				);
 			}
-		} while (opcao != 0);
-
+		}
 	}
 
-	private static void exibirTamanhoDaLista(CadCompra compra) {
-        if (arquivoEscolhido.equals("")) {
-            System.out.printf("\nVoce precisa escolher um arquivo primeiro!\n\n");
-            return;
-        }
-
-		System.out.printf("O tamanho eh %s itens!\n", compra.listaSize());
-	}	
-
-	private static void imprimirLista(CadCompra compra) {
-        if (arquivoEscolhido.equals("")) {
-            System.out.printf("\nVoce precisa escolher um arquivo primeiro!\n\n");
-            return;
-        }
-		System.out.println(compra.toString());
+	static void ordernarEscrever(CadCompra c, int tipo) {
+		if (tipo == 1) {
+			System.out.printf("# Tentando ordernar via shellsort\n\n");
+			metodoOrdenacao = "shell";
+			c.shellSort();
+		} else if (tipo == 2) {
+			System.out.printf("# Tentando ordernar via quick\n\n");
+			metodoOrdenacao = "quick";
+			c.quickSort();
+		} else if (tipo == 3) {
+			System.out.printf("# Tentando ordernar via insercao\n\n");
+			metodoOrdenacao = "insercao";
+			c.insercaoDireta();
+		}
+		criarArquivoOrdenadoTXT(c);
 	}
 
-	private static void carregarArquivoLista(CadCompra compra) throws FileNotFoundException {
-
-		// MUDAR PARA DIRET�RIO DA PESSOA QUE VAI USAR PARA APRESENTAR NO DIA!
-		File diretorio = new File(CAMINHO);
-		File[] files = diretorio.listFiles();
-		String aux = "Selecione um arquivo: " + "\n";
-		String nomeDoArquivo = null;
-
-		for (int i = 0; i < files.length; i++) {
-			aux += i + " - " + files[i].getName() + "\n";
-		}
-		System.out.println(aux);
-
-        System.out.printf("Escolha: ");
-		int opcao = scan.nextInt();
-		for (int i = 0; i <= opcao - 1; i++) {
-			nomeDoArquivo = files[i].getName();
-		}
-
-		// LER ARQUIVO SELECIONADO INSERINDO ELES NA LISTA
+	private static long carregarArquivo(String nome, CadCompra compra) throws FileNotFoundException {
 		LerArquivo ler = new LerArquivo();
-
 		long start, end;
 		start = System.currentTimeMillis();
-
-		ler.iniciarArquivo(CAMINHO + nomeDoArquivo, compra);
+		ler.iniciarArquivo(CAMINHO + nome, compra);
 		end = System.currentTimeMillis();
-        arquivoEscolhido = files[opcao].getName();
-		System.out.println("tempo: " + (end - start) + " ms");
-	}
-
-	private static void ordenarArquivoTXT(CadCompra compra) throws FileNotFoundException {
-        if (arquivoEscolhido.equals("")) {
-            System.out.printf("\nVoce precisa escolher um arquivo primeiro!\n\n");
-            return;
-        }
-
-		int escolha;
-		long start, end;
-
-		System.out.printf(
-			"1. QuickSort\n"
-			+ "2. Insercacao direta\n"
-			+ "3. ShellSort\n"
-			+ "4. Voltar\n\n"
-			+ "Escolha o método: "
-		);
-
-		if ((escolha = scan.nextInt()) < 4) {
-			start = System.currentTimeMillis();
-
-			switch (escolha) {
-				case 1:
-					metodoOrdenacao = "quicksort";
-					compra.quickSort();
-					break;
-				case 2:
-					metodoOrdenacao = "insercao_direta";
-					compra.insercaoDireta();
-					break;
-				case 3:
-					metodoOrdenacao = "shellsort";
-					compra.shellSort();
-					break;
-			}
-
-			end = System.currentTimeMillis();
-			System.out.printf("Compra ordenada, tempo decorrido: %dms\n", (end - start));
-		}
+		return end - start;
 	}
 
 	private static void criarArquivoOrdenadoTXT(CadCompra compra) {
-        if (arquivoEscolhido.equals("")) {
-            System.out.printf("\nVoce precisa escolher um arquivo primeiro!\n\n");
-            return;
-        }
 
         try {
             var writer = new BufferedWriter(new FileWriter(CAMINHO + arquivoEscolhido + String.format("-ordenado_%s.txt", metodoOrdenacao)));

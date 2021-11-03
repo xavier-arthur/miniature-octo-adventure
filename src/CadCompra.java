@@ -138,7 +138,6 @@ public class CadCompra implements Vetor, Ordenacao {
 	@Override
 	public void quickSort() {
 		ordena(0, this.listaSize() - 1);
-
 	}
 
 	private void ordena(int esq, int dir) {
