@@ -21,10 +21,10 @@ public class App {
 
 			for (int i = 1; i <=3; i++) {
 				start = System.currentTimeMillis();
+				arquivoEscolhido = arquivo.getName();
 				carregarArquivo(arquivo.getName(), compra);
 				ordernarEscrever(compra, i);
 				System.out.printf("arquivo: %s\n", arquivo.getName());
-				arquivoEscolhido = arquivo.getName();
 
 				end = System.currentTimeMillis();
 				System.out.printf("TEMPO TOTAL (%s): %sms\n",
@@ -35,21 +35,22 @@ public class App {
 						default -> "";
 					}, (end - start)
 				);
+				System.out.printf("\n");
 			}
 		}
 	}
 
 	static void ordernarEscrever(CadCompra c, int tipo) {
 		if (tipo == 1) {
-			System.out.printf("# Tentando ordernar via shellsort\n\n");
+			System.out.printf("# Tentando ordernar via shellsort\n");
 			metodoOrdenacao = "shell";
 			c.shellSort();
 		} else if (tipo == 2) {
-			System.out.printf("# Tentando ordernar via quick\n\n");
+			System.out.printf("# Tentando ordernar via quick\n");
 			metodoOrdenacao = "quick";
 			c.quickSort();
 		} else if (tipo == 3) {
-			System.out.printf("# Tentando ordernar via insercao\n\n");
+			System.out.printf("# Tentando ordernar via insercao\n");
 			metodoOrdenacao = "insercao";
 			c.insercaoDireta();
 		}

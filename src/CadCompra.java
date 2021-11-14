@@ -39,9 +39,9 @@ public class CadCompra implements Vetor, Ordenacao {
 		return null;
 	}
 
-	public int getPosicao(String CPF) {
+	public int getPosicao(String cpf) {
 		for (int i = 0; i < lista.size(); i++) {
-			if (lista.get(i).getCliente().getCpf() == CPF) {
+			if (lista.get(i).getCliente().getCpf().equals(cpf)) {
 				return i;
 			}
 		}
@@ -72,17 +72,7 @@ public class CadCompra implements Vetor, Ordenacao {
 
 		for (int i = 0; i < lista.size(); i++) {
 
-			if (lista.get(i).getCliente() instanceof Cliente) {
-				Cliente cli = lista.get(i).getCliente();
-				builder.append(
-                    String.join(";", new String[] {
-                        cli.getNome(),
-                        cli.getCpf(),
-                        ManipulaData.formatar(this.lista.get(i).getData()),
-                        Double.toString(this.lista.get(i).getValor())
-                    })
-                );
-			} else {
+			if (lista.get(i).getCliente() instanceof ClienteEspecial) {
 				ClienteEspecial cliEsp = (ClienteEspecial) lista.get(i).getCliente();
 				builder.append(
                     String.join(";", new String[] {
@@ -93,6 +83,16 @@ public class CadCompra implements Vetor, Ordenacao {
                         Double.toString(this.lista.get(i).getValor()) 
                     })
 				);
+			} else {
+				Cliente cli = lista.get(i).getCliente();
+				builder.append(
+                    String.join(";", new String[] {
+                        cli.getNome(),
+                        cli.getCpf(),
+                        ManipulaData.formatar(this.lista.get(i).getData()),
+                        Double.toString(this.lista.get(i).getValor())
+                    })
+                );
 			}
             builder.append("\n");
 		}
@@ -151,6 +151,7 @@ public class CadCompra implements Vetor, Ordenacao {
 				i++;
 			while (Long.parseLong(this.lista.get(j).getCliente().getCpf()) > pivo)
 				j--;
+
 			if (i <= j) {
 				temp = this.lista.get(i);
 				this.lista.set(i, this.lista.get(j));
