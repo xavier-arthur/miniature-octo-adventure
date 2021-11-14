@@ -36,8 +36,8 @@ public class App {
 					}, (end - start)
 				);
 				System.out.printf("\n");
+				compra = new CadCompra();
 			}
-			compra = new CadCompra();
 		}
 	}
 

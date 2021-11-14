@@ -1,180 +1,180 @@
-# Tentando ordernar via shellsort
-
+# Tentando ordernar [ compra5000ord.txt ] via shellsort
 arquivo: compra5000ord.txt
-TEMPO TOTAL (shellsort): 127ms
-# Tentando ordernar via quick
+TEMPO TOTAL (shellsort): 126ms
 
+# Tentando ordernar [ compra5000ord.txt ] via quick
 arquivo: compra5000ord.txt
-TEMPO TOTAL (quicksort): 2371ms
-# Tentando ordernar via insercao
+TEMPO TOTAL (quicksort): 48ms
 
+# Tentando ordernar [ compra5000ord.txt ] via insercao
 arquivo: compra5000ord.txt
-TEMPO TOTAL (insercacao direta): 391ms
-# Tentando ordernar via shellsort
+TEMPO TOTAL (insercacao direta): 22ms
 
+# Tentando ordernar [ compra10000ord.txt ] via shellsort
 arquivo: compra10000ord.txt
-TEMPO TOTAL (shellsort): 116ms
-# Tentando ordernar via quick
+TEMPO TOTAL (shellsort): 65ms
 
+# Tentando ordernar [ compra10000ord.txt ] via quick
 arquivo: compra10000ord.txt
-TEMPO TOTAL (quicksort): 119ms
-# Tentando ordernar via insercao
+TEMPO TOTAL (quicksort): 32ms
 
+# Tentando ordernar [ compra10000ord.txt ] via insercao
 arquivo: compra10000ord.txt
-TEMPO TOTAL (insercacao direta): 2310ms
-# Tentando ordernar via shellsort
+TEMPO TOTAL (insercacao direta): 27ms
 
+# Tentando ordernar [ compra10000inv.txt ] via shellsort
 arquivo: compra10000inv.txt
-TEMPO TOTAL (shellsort): 141ms
-# Tentando ordernar via quick
+TEMPO TOTAL (shellsort): 54ms
 
+# Tentando ordernar [ compra10000inv.txt ] via quick
 arquivo: compra10000inv.txt
-TEMPO TOTAL (quicksort): 169ms
-# Tentando ordernar via insercao
+TEMPO TOTAL (quicksort): 33ms
 
+# Tentando ordernar [ compra10000inv.txt ] via insercao
 arquivo: compra10000inv.txt
-TEMPO TOTAL (insercacao direta): 5726ms
-# Tentando ordernar via shellsort
+TEMPO TOTAL (insercacao direta): 129ms
 
+# Tentando ordernar [ compra5000inv.txt ] via shellsort
 arquivo: compra5000inv.txt
-TEMPO TOTAL (shellsort): 155ms
-# Tentando ordernar via quick
+TEMPO TOTAL (shellsort): 20ms
 
+# Tentando ordernar [ compra5000inv.txt ] via quick
 arquivo: compra5000inv.txt
-TEMPO TOTAL (quicksort): 147ms
-# Tentando ordernar via insercao
+TEMPO TOTAL (quicksort): 13ms
 
+# Tentando ordernar [ compra5000inv.txt ] via insercao
 arquivo: compra5000inv.txt
-TEMPO TOTAL (insercacao direta): 4328ms
-# Tentando ordernar via shellsort
+TEMPO TOTAL (insercacao direta): 34ms
 
+# Tentando ordernar [ compra10000alea.txt ] via shellsort
 arquivo: compra10000alea.txt
-TEMPO TOTAL (shellsort): 250ms
-# Tentando ordernar via quick
+TEMPO TOTAL (shellsort): 55ms
 
+# Tentando ordernar [ compra10000alea.txt ] via quick
 arquivo: compra10000alea.txt
-TEMPO TOTAL (quicksort): 196ms
-# Tentando ordernar via insercao
+TEMPO TOTAL (quicksort): 34ms
 
+# Tentando ordernar [ compra10000alea.txt ] via insercao
 arquivo: compra10000alea.txt
-TEMPO TOTAL (insercacao direta): 18360ms
-# Tentando ordernar via shellsort
+TEMPO TOTAL (insercacao direta): 120ms
 
+# Tentando ordernar [ compra500ord.txt ] via shellsort
 arquivo: compra500ord.txt
-TEMPO TOTAL (shellsort): 208ms
-# Tentando ordernar via quick
+TEMPO TOTAL (shellsort): 2ms
 
+# Tentando ordernar [ compra500ord.txt ] via quick
 arquivo: compra500ord.txt
-TEMPO TOTAL (quicksort): 174ms
-# Tentando ordernar via insercao
+TEMPO TOTAL (quicksort): 2ms
 
+# Tentando ordernar [ compra500ord.txt ] via insercao
 arquivo: compra500ord.txt
-TEMPO TOTAL (insercacao direta): 1327ms
-# Tentando ordernar via shellsort
+TEMPO TOTAL (insercacao direta): 2ms
 
+# Tentando ordernar [ compra500inv.txt ] via shellsort
 arquivo: compra500inv.txt
-TEMPO TOTAL (shellsort): 219ms
-# Tentando ordernar via quick
+TEMPO TOTAL (shellsort): 2ms
 
+# Tentando ordernar [ compra500inv.txt ] via quick
 arquivo: compra500inv.txt
-TEMPO TOTAL (quicksort): 166ms
-# Tentando ordernar via insercao
+TEMPO TOTAL (quicksort): 2ms
 
+# Tentando ordernar [ compra500inv.txt ] via insercao
 arquivo: compra500inv.txt
-TEMPO TOTAL (insercacao direta): 1084ms
-# Tentando ordernar via shellsort
+TEMPO TOTAL (insercacao direta): 2ms
 
+# Tentando ordernar [ compra50000inv.txt ] via shellsort
 arquivo: compra50000inv.txt
-TEMPO TOTAL (shellsort): 514ms
-# Tentando ordernar via quick
+TEMPO TOTAL (shellsort): 289ms
 
+# Tentando ordernar [ compra50000inv.txt ] via quick
 arquivo: compra50000inv.txt
-TEMPO TOTAL (quicksort): 711ms
-# Tentando ordernar via insercao
+TEMPO TOTAL (quicksort): 150ms
 
+# Tentando ordernar [ compra50000inv.txt ] via insercao
 arquivo: compra50000inv.txt
-TEMPO TOTAL (insercacao direta): 243879ms
-# Tentando ordernar via shellsort
+TEMPO TOTAL (insercacao direta): 2544ms
 
+# Tentando ordernar [ compra1000alea.txt ] via shellsort
 arquivo: compra1000alea.txt
-TEMPO TOTAL (shellsort): 585ms
-# Tentando ordernar via quick
+TEMPO TOTAL (shellsort): 3ms
 
+# Tentando ordernar [ compra1000alea.txt ] via quick
 arquivo: compra1000alea.txt
-TEMPO TOTAL (quicksort): 450ms
-# Tentando ordernar via insercao
+TEMPO TOTAL (quicksort): 3ms
 
+# Tentando ordernar [ compra1000alea.txt ] via insercao
 arquivo: compra1000alea.txt
-TEMPO TOTAL (insercacao direta): 5263ms
-# Tentando ordernar via shellsort
+TEMPO TOTAL (insercacao direta): 3ms
 
+# Tentando ordernar [ compra50000alea.txt ] via shellsort
 arquivo: compra50000alea.txt
-TEMPO TOTAL (shellsort): 1334ms
-# Tentando ordernar via quick
+TEMPO TOTAL (shellsort): 366ms
 
+# Tentando ordernar [ compra50000alea.txt ] via quick
 arquivo: compra50000alea.txt
-TEMPO TOTAL (quicksort): 1188ms
-# Tentando ordernar via insercao
+TEMPO TOTAL (quicksort): 162ms
 
+# Tentando ordernar [ compra50000alea.txt ] via insercao
 arquivo: compra50000alea.txt
-TEMPO TOTAL (insercacao direta): 392220ms
-# Tentando ordernar via shellsort
+TEMPO TOTAL (insercacao direta): 2732ms
 
+# Tentando ordernar [ compra50000ord.txt ] via shellsort
 arquivo: compra50000ord.txt
-TEMPO TOTAL (shellsort): 1089ms
-# Tentando ordernar via quick
+TEMPO TOTAL (shellsort): 252ms
 
+# Tentando ordernar [ compra50000ord.txt ] via quick
 arquivo: compra50000ord.txt
-TEMPO TOTAL (quicksort): 1210ms
-# Tentando ordernar via insercao
+TEMPO TOTAL (quicksort): 138ms
 
+# Tentando ordernar [ compra50000ord.txt ] via insercao
 arquivo: compra50000ord.txt
-TEMPO TOTAL (insercacao direta): 544475ms
-# Tentando ordernar via shellsort
+TEMPO TOTAL (insercacao direta): 95ms
 
+# Tentando ordernar [ compra500alea.txt ] via shellsort
 arquivo: compra500alea.txt
-TEMPO TOTAL (shellsort): 1133ms
-# Tentando ordernar via quick
+TEMPO TOTAL (shellsort): 2ms
 
+# Tentando ordernar [ compra500alea.txt ] via quick
 arquivo: compra500alea.txt
-TEMPO TOTAL (quicksort): 926ms
-# Tentando ordernar via insercao
+TEMPO TOTAL (quicksort): 2ms
 
+# Tentando ordernar [ compra500alea.txt ] via insercao
 arquivo: compra500alea.txt
-TEMPO TOTAL (insercacao direta): 5641ms
-# Tentando ordernar via shellsort
+TEMPO TOTAL (insercacao direta): 1ms
 
+# Tentando ordernar [ compra1000ord.txt ] via shellsort
 arquivo: compra1000ord.txt
-TEMPO TOTAL (shellsort): 1102ms
-# Tentando ordernar via quick
+TEMPO TOTAL (shellsort): 4ms
 
+# Tentando ordernar [ compra1000ord.txt ] via quick
 arquivo: compra1000ord.txt
-TEMPO TOTAL (quicksort): 969ms
-# Tentando ordernar via insercao
+TEMPO TOTAL (quicksort): 3ms
 
+# Tentando ordernar [ compra1000ord.txt ] via insercao
 arquivo: compra1000ord.txt
-TEMPO TOTAL (insercacao direta): 11778ms
-# Tentando ordernar via shellsort
+TEMPO TOTAL (insercacao direta): 2ms
 
+# Tentando ordernar [ compra1000inv.txt ] via shellsort
 arquivo: compra1000inv.txt
-TEMPO TOTAL (shellsort): 1253ms
-# Tentando ordernar via quick
+TEMPO TOTAL (shellsort): 2ms
 
+# Tentando ordernar [ compra1000inv.txt ] via quick
 arquivo: compra1000inv.txt
-TEMPO TOTAL (quicksort): 1072ms
-# Tentando ordernar via insercao
+TEMPO TOTAL (quicksort): 3ms
 
+# Tentando ordernar [ compra1000inv.txt ] via insercao
 arquivo: compra1000inv.txt
-TEMPO TOTAL (insercacao direta): 11851ms
-# Tentando ordernar via shellsort
+TEMPO TOTAL (insercacao direta): 2ms
 
+# Tentando ordernar [ compra5000alea.txt ] via shellsort
 arquivo: compra5000alea.txt
-TEMPO TOTAL (shellsort): 1409ms
-# Tentando ordernar via quick
+TEMPO TOTAL (shellsort): 21ms
 
+# Tentando ordernar [ compra5000alea.txt ] via quick
 arquivo: compra5000alea.txt
-TEMPO TOTAL (quicksort): 1175ms
-# Tentando ordernar via insercao
+TEMPO TOTAL (quicksort): 14ms
 
+# Tentando ordernar [ compra5000alea.txt ] via insercao
 arquivo: compra5000alea.txt
-TEMPO TOTAL (insercacao direta): 59470ms
+TEMPO TOTAL (insercacao direta): 33ms
+
