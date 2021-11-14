@@ -19,7 +19,7 @@ public class App {
 		long start, end;
 		for (File arquivo : new File(CAMINHO).listFiles()) {
 
-			for (int i = 1; i <=3; i++) {
+			for (int i = 1; i <= 3; i++) {
 				start = System.currentTimeMillis();
 				arquivoEscolhido = arquivo.getName();
 				carregarArquivo(arquivo.getName(), compra);
@@ -29,28 +29,29 @@ public class App {
 				end = System.currentTimeMillis();
 				System.out.printf("TEMPO TOTAL (%s): %sms\n",
 					switch (i) {
-						case 1 ->  "shellsort";
-						case 2 ->  "quicksort";
-						case 3 ->  "insercacao direta";
+						case 1  -> "shellsort";
+						case 2  -> "quicksort";
+						case 3  -> "insercacao direta";
 						default -> "";
 					}, (end - start)
 				);
 				System.out.printf("\n");
 			}
+			compra = new CadCompra();
 		}
 	}
 
 	static void ordernarEscrever(CadCompra c, int tipo) {
 		if (tipo == 1) {
-			System.out.printf("# Tentando ordernar via shellsort\n");
+			System.out.printf("# Tentando ordernar [ %s ] via shellsort\n", arquivoEscolhido);
 			metodoOrdenacao = "shell";
 			c.shellSort();
 		} else if (tipo == 2) {
-			System.out.printf("# Tentando ordernar via quick\n");
+			System.out.printf("# Tentando ordernar [ %s ] via quick\n", arquivoEscolhido);
 			metodoOrdenacao = "quick";
 			c.quickSort();
 		} else if (tipo == 3) {
-			System.out.printf("# Tentando ordernar via insercao\n");
+			System.out.printf("# Tentando ordernar [ %s ] via insercao\n", arquivoEscolhido);
 			metodoOrdenacao = "insercao";
 			c.insercaoDireta();
 		}

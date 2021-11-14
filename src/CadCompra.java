@@ -96,6 +96,7 @@ public class CadCompra implements Vetor, Ordenacao {
 			}
             builder.append("\n");
 		}
+
         return builder.toString();
 	}
 
@@ -170,31 +171,24 @@ public class CadCompra implements Vetor, Ordenacao {
 	}
 
 	@Override
-	public void shellSort() {
-		int i, j, h;
-		Compra temp;
-		h = 1;
-		do {
-			h = 3 * h + 1;
-		} while (h < this.listaSize());
-
-		do {
-			h = h / 3;
-			for (i = h; i < this.listaSize(); i++) {
-				temp = this.lista.get(i);
-				j = i;
-
-				while (Long.parseLong(this.lista.get(j - h).getCliente().getCpf()) > Long
-						.parseLong(temp.getCliente().getCpf())) {
-					this.lista.set(j, this.lista.get(j - h));
-					j -= h;
-					if (j < h)
-						break;
+    public void shellSort() {
+        int n = this.lista.size();
+ 
+        for (int gap = n/2; gap > 0; gap /= 2)
+        {
+            for (int i = gap; i < n; i += 1) {
+                var temp = Long.parseLong(this.lista.get(i).getCliente().getCpf());
+				var tmpObj = this.lista.get(i);
+ 
+                int j;
+                for (j = i; (j >= gap) && (Long.parseLong(this.lista.get(j - gap).getCliente().getCpf()) > temp); j -= gap) {
+					this.lista.set(j, this.lista.get(j - gap));
 				}
-				this.lista.set(j, temp);
-			}
-		} while (h != 1);
-	}
+ 
+                this.lista.set(j, tmpObj);
+            }
+        }
+    }
 
 	@Override
 	public void quickComInsercao() {
